@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NovaLab — Agents autonomes</title>
+<style>
+ :root{--bg:#0b0d16;--fg:#e9eaf2;--accent:#7c5cff;--muted:#9aa0b4}
+ *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);
+ font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+ .wrap{max-width:900px;margin:0 auto;padding:64px 24px}
+ h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:0 0 8px}
+ .tag{display:inline-block;padding:4px 10px;border:1px solid #ffffff22;border-radius:999px;
+ font-size:12px;color:var(--muted);margin-bottom:20px}
+ .grid{display:grid;gap:16px;grid-template-columns:1fr 1fr;margin-top:32px}
+ .card{background:#ffffff08;border:1px solid #ffffff14;border-radius:16px;padding:20px}
+ pre{white-space:pre-wrap;font-size:13px;color:var(--muted);margin:0}
+ .accent{color:var(--accent)}
+ footer{margin-top:48px;font-size:13px;color:var(--muted);border-top:1px solid #ffffff14;padding-top:16px}
+</style></head><body><div class="wrap">
+<span class="tag">Construit par builder-01 · via orchestrateur</span>
+<h1>Comprendre les <span class="accent">agents autonomes</span></h1>
+<p>Cette page n'a pas été écrite à la main : elle a été assemblée par le Builder
+Agent à partir d'une recherche déléguée au Research Agent, puis contrôlée par
+les agents Cyber et QA.</p>
+<div class="grid">
+ <div class="card"><h3>Recherche</h3><pre>Recherche : Prépare une landing page sur les agents autonomes. Tu dois utiliser le Research Agent pour obtenir les informations nécessaires.
+
+• Théorie du complot
+  Une théorie du complot, complotiste, conspirationniste ou conjurationniste est une théorie qui explique un événement comme résultant majoritairement d'un complot, c'est-à-dire d'une action planifiée et dissimulée d'une ou plusieurs personnes en vue de nuire à une ou plusieurs autres personnes.
+</pre></div>
+ <div class="card"><h3>Sécurité</h3><pre>Analyse de sécurité — cible : Prépare une landing page sur les agents autonomes. Tu dois utiliser le Research Agent pour obtenir les informations nécessaires.
+
+Contrôles appliqués :
+  [01] Authentification       Chaque appel mutateur exige une clé d'API (X-API-Key) ; 401 sinon.
+  [02] Autorisation           Le registre refuse la délégation sans clé opérateur.
+  [03] Transport              TLS/HTTPS obligatoire hors réseau de confiance du lab.
+  [04] Entrées                Validation et longueur maximale du prompt (anti-injection).
+  [05] Journalisation         Chaque délégation est horodatée et traçable dans /events.
+  [06] Surface                Les agents n'exposent que 4 endpoints : pas de surface superflue.
+  [07] Défense en profondeur  L'orchestrateur ne connaît pas le code des agents.
+  [08] Secrets                Aucune clé n'est renvoyée dans les réponses HTTP.
+
+Risques résiduels : un agent compromis reste un pair de confiance dans le LAN ; prévoir mTLS et un registre de clés tournantes hors du lab.</pre></div>
+</div>
+<div class="card" style="margin-top:16px"><h3>QA</h3><pre>Rapport QA — cible : Prépare une landing page sur les agents autonomes. Tu dois utiliser le Research Agent pour obtenir les informations nécessaires.
+
+Cas exécutés :
+  [x] health         GET /health répond 200 et {status: ok}
+  [x] capabilities   GET /capabilities liste au moins une capacité
+  [x] auth_refus     POST /tasks sans clé → 401
+  [x] auth_accord    POST /tasks avec clé → 200
+  [x] delegation     l'orchestrateur route la tâche et renvoie un résultat non vide
+  [x] offline        agent éteint → NO AVAILABLE AGENT
+  [x] inconnu        capacité absente du réseau → NO CAPABLE AGENT FOUND
+
+Verdict : couverture fonctionnelle OK. À renforcer : test de charge (N agents simultanés) et test de panne au milieu d'une délégation.</pre></div>
+<footer>Objectif : Prépare une landing page sur les agents autonomes. Tu dois utiliser le Research Agent pour obtenir les informations nécessaires. — généré 2026-10-05 19:14</footer>
+</div></body></html>
